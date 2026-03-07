@@ -398,7 +398,7 @@ Fits `StandardScaler` **on training data only** and applies it to all training w
 
 Plots Z-score normalised box plots for the 6 most discriminative features across all four activity classes, saved as `figures/fig2_feature_distributions.png`.
 
-![Figure 2: Feature Distributions by Activity](figures/fig2_feature_distributions.png)
+![Figure 2: Feature Distributions](notebook/figures/more_data/feature_distribution.png)
 
 > **Figure 2:** Z-score normalised feature distributions across the four activity classes. Well-separated box plots confirm that the selected features are discriminative — note the clear separation between Still (near-zero, tight boxes) and Jumping (elevated medians, wider IQRs) across all standard deviation and SMA features, and the distinct dominant frequency bands per activity.
 
@@ -431,13 +431,13 @@ Generates two figures visualising the learned HMM parameters.
 
 **Transition probability matrices (Figure 3):**
 
-![Figure 3: HMM Transition Probability Matrices](figures/fig3_transition_matrices.png)
+![Figure 3: Transition Matrices](notebook/figures/more_data/transition_matrix.png)
 
 > **Figure 3:** Learned transition probability matrices for all four HMMs. Each cell A[i,j] = P(next state = j | current state = i). Strong diagonal dominance indicates that hidden sub-states are stable — once in a state, the system tends to remain there — which reflects the persistent, cyclic nature of each physical activity. Jumping shows the most off-diagonal mass, encoding its rapid phase alternation between push-off, airborne, landing, and recovery.
 
 **Emission probability means heatmap (Figure 4):**
 
-![Figure 4: Emission Probability Means Heatmap](figures/fig4_emission_heatmap.png)
+![Figure 4: Emission Heatmap](notebook/figures/more_data/emission_heatmap.png)
 
 > **Figure 4:** Averaged emission mean signatures across all 4 hidden states per activity (first 22 features shown). Each row is a unique colour pattern representing the activity's learned feature signature. The Jumping row shows strong positive values in RMS and SMA columns (high energy); the Still row is uniformly near zero across all variability and energy features. Distinct row colours across all activities confirm that the HMMs have learned meaningfully different emission distributions.
 
@@ -487,7 +487,7 @@ Runs Viterbi decoding on all 265 test windows and computes per-class Sensitivity
 
 **Confusion matrix (Figure 5):**
 
-![Figure 5: Confusion Matrix on Unseen Test Data](figures/fig5_confusion_matrix.png)
+![Figure 5: Confusion Matrix](notebook/figures/more_data/confusion_matrix.png)
 
 > **Figure 5:** Confusion matrix evaluated on 265 unseen test windows. The large diagonal values confirm accurate classification across all four activities. Off-diagonal mass is concentrated in the Standing row — 11 Standing windows were misclassified as Walking, attributable to the genuine biomechanical similarity between slow postural micro-movement and low-speed walking at the sensor level.
 
@@ -510,7 +510,7 @@ Runs Viterbi decoding on all 265 test windows and computes per-class Sensitivity
 
 Plots the Viterbi-decoded activity sequence over time for one test file per activity, saved as `figures/fig6_decoded_sequences.png`.
 
-![Figure 6: Viterbi-Decoded Activity Sequences](figures/fig6_decoded_sequences.png)
+![Figure 6: Decoded Sequences](notebook/figures/more_data/decode_sequences.png)
 
 > **Figure 6:** Viterbi-decoded activity sequences on unseen test recordings. The coloured step line shows the predicted activity label for each window; the dashed black line shows the true label. When both lines are flat and aligned, the model classified every window in that recording correctly. Brief transient deviations indicate single-window mispredictions at moments where two activities' feature distributions briefly overlap.
 
@@ -520,7 +520,7 @@ Plots the Viterbi-decoded activity sequence over time for one test file per acti
 
 Plots the log-likelihood training history for all four HMMs, saved as `figures/fig7_convergence.png`.
 
-![Figure 7: Baum-Welch Log-Likelihood Convergence Curves](figures/fig7_convergence.png)
+![Figure 7: Convergence Curves](notebook/figures/more_data/convergence.png)
 
 > **Figure 7:** Baum-Welch EM log-likelihood convergence curves for all four activity HMMs. Each curve shows monotonically increasing log-likelihood that plateaus as the improvement per iteration falls below the convergence threshold ε = 0.0001. The steep initial rise indicates rapid improvement in the early EM iterations when the model is far from its optimum; the subsequent plateau confirms convergence to a local maximum of the data likelihood.
 
