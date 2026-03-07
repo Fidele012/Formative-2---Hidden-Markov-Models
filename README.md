@@ -328,7 +328,7 @@ Activity      Files   Total Duration     ≥90s Check
 
 Plots one representative recording per activity — accelerometer and gyroscope side-by-side — saved as `figures/fig1_raw_signals.png`.
 
-![Figure 1: Raw Sensor Signals — one representative recording per activity](figures/fig1_raw_signals.png)
+![Figure 1: Raw Signals](notebook/figures/more_data/raw_signals.png)
 
 > **Figure 1:** Raw accelerometer (left) and gyroscope (right) signals for each of the four activities. Visually distinct waveform patterns confirm that activities are separable at the sensor level — still produces flat lines, standing shows a stable gravity baseline, walking shows rhythmic sinusoidal oscillations, and jumping produces large-amplitude periodic spikes.
 
